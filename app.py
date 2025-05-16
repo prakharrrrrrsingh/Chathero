@@ -1,14 +1,14 @@
-import os
-from dotenv import load_dotenv
 from flask import Flask, request, jsonify, render_template
 from openai import OpenAI  # ✅ NEW import method for openai>=1.0.0
 
-load_dotenv()
+# Directly set your API key and base URL here
+OPENROUTER_API_KEY = "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"
+OPENAI_BASE_URL = "https://openrouter.ai/api/v1"
 
 # ✅ Initialize the client
 client = OpenAI(
-    api_key=os.getenv("OPENROUTER_API_KEY"),
-    base_url=os.getenv("OPENAI_BASE_URL")  # OpenRouter base
+    api_key=OPENROUTER_API_KEY,
+    base_url=OPENAI_BASE_URL
 )
 
 app = Flask(__name__)
